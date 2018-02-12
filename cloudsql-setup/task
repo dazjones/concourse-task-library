@@ -6,7 +6,7 @@ source cf-deployment-concourse-tasks/shared-functions
 function close_bbl_ssh_connection_and_commit_bbl_state_dir() {
   close_bbl_ssh_connection
   if ${USE_VARS_STORE}; then
-    commit_bbl_state_dir
+    commit_bbl_state_dir "env-repo/${BBL_STATE_DIR}" 'Update bbl state dir'
   fi
 }
 
