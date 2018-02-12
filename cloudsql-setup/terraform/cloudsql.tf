@@ -1,6 +1,7 @@
 resource "google_sql_database_instance" "master" {
   name = "master-instance"
   region = "europe-west1"
+  project = "${google_project.name}"
 
   settings {
     tier = "D0"
