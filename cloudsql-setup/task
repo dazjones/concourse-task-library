@@ -27,7 +27,7 @@ function main() {
 	cd concourse-tasks/cloudsql-setup/terraform/
 
 	terraform init
-	terraform apply -var "project=${GCP_PROJECT}" --auto-approve --state="env-repo/${BBL_STATE_DIR}"
+	terraform apply -var "project=${GCP_PROJECT}" --auto-approve --state="${BUILD_DIR}/env-repo/${BBL_STATE_DIR}"
 }
 
 trap commit_bbl_state_dir EXIT
