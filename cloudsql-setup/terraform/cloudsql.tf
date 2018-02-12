@@ -1,7 +1,6 @@
 variable "project" {}
 
 resource "google_sql_database_instance" "master" {
-  name = "master-instance"
   region = "europe-west1"
   project = "${var.project}"
 
