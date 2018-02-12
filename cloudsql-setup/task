@@ -5,24 +5,13 @@ source cf-deployment-concourse-tasks/shared-functions
 
 BUILD_DIR=${PWD}
 
-function close_bbl_ssh_connection_and_commit_bbl_state_dir() {
-	cd $BUILD_DIR
-
-	close_bbl_ssh_connection
-	if ${USE_VARS_STORE}; then
-		commit_bbl_state_dir "${PWD}" 'Update bbl state dir'
-	fi
-}
-
 function main() {
-#	setup_bosh_env_vars
-
 	cd concourse-tasks/cloudsql-setup/terraform/
 
 	terraform init
 	terraform apply -var "project=${GCP_PROJECT}" --auto-approve --state="env-repo/${BBL_STATE_DIR}"
 }
 
-#trap close_bbl_ssh_connection_and_commit_bbl_state_dir EXIT
+trap commit_bbl_state_dir "${BUILD_DIR}" 'Update bbl state dir' EXIT
 
 main
