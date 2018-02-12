@@ -5,7 +5,6 @@ source cf-deployment-concourse-tasks/shared-functions
 
 function main() {
     setup_bosh_env_vars
-    bosh_interpolate
 
     cd concourse-tasks/cloud-sql-setup/terraform/
     terraform init
