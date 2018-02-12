@@ -22,6 +22,6 @@ params:
     BBL_STATE_DIR: bbl-state
     MANIFEST_FILE: manifest.yml
     USE_VARS_STORE: false
-    SYSTEM_DOMAIN: ''
+    SYSTEM_DOMAIN: 'example.com'
     OPS_FILES: ''
     VARS_FILES: ''
