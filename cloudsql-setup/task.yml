@@ -7,7 +7,7 @@ image_resource:
         repository: relintdockerhubpushbot/cf-deployment-concourse-tasks
         tag: v4.11.0
 
-input:
+inputs:
 - name: cf-deployment-concourse-tasks
 - name: env-repo
 - name: concourse-tasks
