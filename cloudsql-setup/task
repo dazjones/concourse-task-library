@@ -2,6 +2,8 @@
 
 # shellcheck disabled=SC1091
 
+BUILD_DIR=${PWD}
+
 function commit_bbl_state_dir {
   local root_dir
   root_dir="${1}"
@@ -21,8 +23,6 @@ function commit_bbl_state_dir {
   popd
 }
 
-BUILD_DIR=${PWD}
-
 function main() {
 	cd concourse-tasks/cloudsql-setup/terraform/
 
@@ -30,6 +30,6 @@ function main() {
 	terraform apply -var "project=${GCP_PROJECT}" --auto-approve --state="env-repo/${BBL_STATE_DIR}"
 }
 
-trap commit_bbl_state_dir "${BUILD_DIR}" 'Update bbl state dir' EXIT
+trap commit_bbl_state_dir \'${BUILD_DIR}\' 'Update bbl state dir' EXIT
 
 main
