@@ -10,10 +10,11 @@ image_resource:
 inputs:
 - name: cf-deployment-concourse-tasks
 - name: env-repo
+- name: vars-store
 - name: concourse-tasks
 
 outputs:
-- name: updated-env-repo
+- name: updated-vars-store
 
 run:
     path: concourse-tasks/cloudsql-setup/task
