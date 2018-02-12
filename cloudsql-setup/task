@@ -21,7 +21,7 @@ function set_git_config() {
 function commit_bbl_state_dir {
   local root_dir
   root_dir="${BUILD_DIR}"
-  commit_message="Update bbl state dir}"
+  commit_message="Update cloudsql-state"
 
   pushd "${root_dir}/env-repo/${BBL_STATE_DIR}"
     if [[ -n $(git status --porcelain) ]]; then
