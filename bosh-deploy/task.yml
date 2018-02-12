@@ -15,7 +15,7 @@ inputs:
 - name: vars-files  # - Variable files to be made available
 - name: cf-deployment-concourse-tasks # - github.com/cloudfoundry/cf-deployment-concourse-tasks
 - name: semver-storage # - Semver storage directory
-- name: concourse-deployment-tasks # - This repo
+- name: concourse-tasks # - This repo
 
 outputs:
 - name: release
