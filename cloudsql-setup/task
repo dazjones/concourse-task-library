@@ -3,8 +3,10 @@
 # shellcheck disabled=SC1091
 source cf-deployment-concourse-tasks/shared-functions
 
+BUILD_DIR=${PWD}
+
 function close_bbl_ssh_connection_and_commit_bbl_state_dir() {
-	cd ../../../
+	cd $BUILD_DIR
 
 	close_bbl_ssh_connection
 	if ${USE_VARS_STORE}; then
@@ -13,7 +15,7 @@ function close_bbl_ssh_connection_and_commit_bbl_state_dir() {
 }
 
 function main() {
-	setup_bosh_env_vars
+#	setup_bosh_env_vars
 
 	cd concourse-tasks/cloudsql-setup/terraform/
 
@@ -21,6 +23,6 @@ function main() {
 	terraform apply -var "project=${GCP_PROJECT}" --auto-approve --state="env-repo/${BBL_STATE_DIR}"
 }
 
-trap close_bbl_ssh_connection_and_commit_bbl_state_dir EXIT
+#trap close_bbl_ssh_connection_and_commit_bbl_state_dir EXIT
 
 main
