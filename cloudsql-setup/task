@@ -6,7 +6,7 @@ source cf-deployment-concourse-tasks/shared-functions
 function main() {
     setup_bosh_env_vars
 
-    cd concourse-tasks/cloud-sql-setup/terraform/
+    cd concourse-tasks/cloudsql-setup/terraform/
     terraform init
     terraform apply cloudsql.tf --auto-approve --state="env-repo/${BBL_STATE_DIR}"
 }
