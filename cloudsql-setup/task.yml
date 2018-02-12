@@ -13,7 +13,7 @@ inputs:
 - name: concourse-tasks
 
 outputs:
-- name: env-repo
+- name: updated-env-repo
 
 run:
     path: concourse-tasks/cloudsql-setup/task
