@@ -14,4 +14,5 @@ resource "google_sql_database" "users" {
   instance  = "${google_sql_database_instance.master.name}"
   charset   = "latin1"
   collation = "latin1_swedish_ci"
+  project = "${var.project}"
 }
