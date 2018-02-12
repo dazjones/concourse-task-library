@@ -1,0 +1,22 @@
+---
+platform: linux
+
+image_resource:
+    type: docker-image
+    source:
+        repository: relintdockerhubpushbot/cf-deployment-concourse-tasks
+        tag: v4.11.0
+
+input:
+- name: cf-deployment-concourse-tasks
+- name: env-repo
+- name: concourse-tasks
+
+outputs:
+- name: env-repo
+
+run:
+    path: concourse-tasks/cloudsql-setup/task
+
+params:
+    BBL_STATE_DIR: bbl-state
