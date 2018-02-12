@@ -1,0 +1,20 @@
+#!/bin/bash -xeu
+
+# shellcheck disable=SC1091
+
+source cf-deployment-concourse-tasks/shared-functions
+
+VERSION=$(cat semver-storage/version)
+
+function main() {
+    setup_bosh_env_vars
+    bosh_interpolate
+    bosh -n create-release --force --dir cf-deployment
+    bosh -n upload-release --dir cf-deployment
+}
+
+trap close_bbl_ssh_connection_and_commit_vars_store EXIT
+
+main
+
+tar -czf release/release-$VERSION.tgz cf-deployment

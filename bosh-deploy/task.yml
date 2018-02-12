@@ -1,0 +1,48 @@
+---
+platform: linux
+
+image_resource:
+    type: docker-image
+    source:
+        repository: relintdockerhubpushbot/cf-deployment-concourse-tasks
+        tag: v4.10.0
+
+inputs:
+- name: env-repo  # - The env repo containing the Director's bbl state dir
+- name: cf-deployment  # - The cf-deployment manifest
+- name: vars-store  # - The BOSH deployment's vars-store yaml file
+- name: ops-files  # - Operations files to be made available
+- name: vars-files  # - Variable files to be made available
+- name: cf-deployment-concourse-tasks # - github.com/cloudfoundry/cf-deployment-concourse-tasks
+- name: semver-storage # - Semver storage directory
+- name: concourse-deployment-tasks # - This repo
+
+outputs:
+- name: release
+- name: updated-vars-store 
+
+run:
+    path: concourse-tasks/bosh-deploy/task
+
+params:
+  BBL_STATE_DIR: bbl-state
+  MANIFEST_FILE: cf-deployment.yml
+  VARS_STORE_FILE: deployment-vars.yml
+  USE_VARS_STORE: true
+  SYSTEM_DOMAIN:
+  OPS_FILES:
+  VARS_FILES:
+  REGENERATE_VARS_STORE: false
+  GIT_COMMIT_EMAIL:
+  GIT_COMMIT_USERNAME:
+  DEPLOY_WITH_UPTIME_MEASUREMENTS: false
+  MEASURE_SYSLOG_AVAILABILITY: false
+  TCP_DOMAIN:
+  AVAILABLE_PORT:
+  FAIL_ON_DOWNTIME: false
+  APP_PUSHABILITY_THRESHOLD: 0
+  HTTP_AVAILABILITY_THRESHOLD: 0
+  RECENT_LOGS_THRESHOLD: 0
+  STREAMING_LOGS_THRESHOLD: 0
+  APP_SYSLOG_AVAILABILITY_THRESHOLD: 0
+  BBL_GCP_SERVICE_ACCOUNT_KEY:
