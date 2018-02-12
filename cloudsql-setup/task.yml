@@ -8,7 +8,6 @@ image_resource:
         tag: v4.11.0
 
 inputs:
-- name: cf-deployment-concourse-tasks
 - name: env-repo
 - name: concourse-tasks
 
@@ -20,8 +19,3 @@ run:
 
 params:
     BBL_STATE_DIR: bbl-state
-    MANIFEST_FILE: manifest.yml
-    USE_VARS_STORE: true
-    SYSTEM_DOMAIN: 'example.com'
-    OPS_FILES: ''
-    VARS_FILES: ''
