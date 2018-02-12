@@ -11,6 +11,6 @@ function main() {
     terraform apply -var "project=${GCP_PROJECT}" --auto-approve --state="env-repo/${BBL_STATE_DIR}"
 }
 
-trap close_bbl_ssh_connection_and_commit_vars_store EXIT
+trap close_bbl_ssh_connection commit_bbl_state_dir EXIT
 
 main

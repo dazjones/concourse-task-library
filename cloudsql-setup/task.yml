@@ -10,17 +10,16 @@ image_resource:
 inputs:
 - name: cf-deployment-concourse-tasks
 - name: env-repo
-- name: vars-store
 - name: concourse-tasks
 
 outputs:
-- name: updated-vars-store
+- name: updated-env-repo
 
 run:
     path: concourse-tasks/cloudsql-setup/task
 
 params:
-    BBL_STATE_DIR: bbl-state
+    BBL_STATE_DIR: env-repo
     MANIFEST_FILE: manifest.yml
     USE_VARS_STORE: false
     SYSTEM_DOMAIN: 'example.com'
