@@ -38,7 +38,7 @@ function commit_bbl_state_dir {
 }
 
 function main() {
-	cd concourse-tasks/terraform-setup/${TERRAFORM_DIR}/
+	cd concourse-tasks/terraform-init-and-apply/${TERRAFORM_DIR}/
 
 	terraform init
 	terraform apply -var "project=${GCP_PROJECT}" --auto-approve --state="${BUILD_DIR}/env-repo/${BBL_STATE_DIR}/terraform/concourse-tasks-terraform-state.tf"

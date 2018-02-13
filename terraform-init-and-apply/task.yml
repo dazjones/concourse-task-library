@@ -15,7 +15,7 @@ outputs:
 - name: updated-env-repo
 
 run:
-    path: concourse-tasks/terraform-setup/task
+    path: concourse-tasks/terraform-init-and-apply/task
 
 params:
     BBL_STATE_DIR: bbl-state
