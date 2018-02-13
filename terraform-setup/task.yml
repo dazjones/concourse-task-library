@@ -15,7 +15,8 @@ outputs:
 - name: updated-env-repo
 
 run:
-    path: concourse-tasks/cloudsql-setup/task
+    path: concourse-tasks/terraform-setup/task
 
 params:
     BBL_STATE_DIR: bbl-state
+    TERRAFORM_DIR: terraform
