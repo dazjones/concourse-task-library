@@ -22,7 +22,7 @@ outputs:
 - name: updated-vars-store 
 
 run:
-    path: concourse-tasks/bosh-deploy/task
+    path: concourse-tasks/create-and-upload-release/task
 
 params:
   BBL_STATE_DIR: bbl-state
