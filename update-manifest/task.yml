@@ -28,7 +28,14 @@ run:
   - -xc
   - |
     git clone git-buildstack-deployment git-buildstack-deployment-modified
-    
-    source concourse-tasks/update-manifest/update-${TYPE}.sh
+
+    SCRIPT_PATH="concourse-tasks/update-manifest/update-${TYPE}.sh"
+
+    if [ -f ${SCRIPT_PATH} ]; then
+      source ${SCRIPT_PATH}
+    else
+      echo "Could not find script ${SCRIPT_PATH}"
+      exit 1
+    fi
 
 
