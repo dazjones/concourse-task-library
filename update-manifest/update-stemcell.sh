@@ -7,8 +7,8 @@ cat <<EOF > git-buildstack-deployment/new-stemcell.yml
 ---
 stemcells:
 - alias: default
-os: ubuntu-trusty
-version: "${STEMCELL_VERSION}"
+  os: ubuntu-trusty
+  version: "${STEMCELL_VERSION}"
 EOF
 
 cat git-buildstack-deployment/new-stemcell.yml
