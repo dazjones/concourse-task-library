@@ -1,0 +1,33 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: darrenjones/docker-spruce
+    tag: 0.3
+
+inputs:
+  - name: git-buildstack-deployment
+  - name: gcs-bucket
+
+outputs:
+  - name: git-buildstack-deployment-modified
+
+params:
+  RELEASE: devtools
+  YAML_FILE: buildstack.yml
+  GIT_COMMIT_USERNAME: "CI Bot"
+  GIT_COMMIT_EMAIL: "ci-bot@finkit.com"
+  TYPE: "release"
+
+run:
+  path: /bin/bash
+  args:
+  - -xc
+  - |
+    git clone git-buildstack-deployment git-buildstack-deployment-modified
+    
+    source update-{$TYPE}.sh
+
+
