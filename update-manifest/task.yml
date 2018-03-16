@@ -28,6 +28,6 @@ run:
   - |
     git clone git-buildstack-deployment git-buildstack-deployment-modified
     
-    source update-${TYPE}.sh
+    source concourse-tasks/update-${TYPE}.sh
 
 
