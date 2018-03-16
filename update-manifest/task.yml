@@ -11,6 +11,8 @@ inputs:
   - name: git-buildstack-deployment
   - name: gcs-bucket
   - name: concourse-tasks
+  - name: version
+    optional: true
 
 outputs:
   - name: git-buildstack-deployment-modified
