@@ -8,9 +8,9 @@ cat <<EOF > git-buildstack-deployment/new-release.yml
 ---
 releases:
 - name: ${RELEASE}
-url: ${RELEASE_URL}
-version: ${RELEASE_VERSION}
-sha1: ${RELEASE_SHA}
+  url: ${RELEASE_URL}
+  version: ${RELEASE_VERSION}
+  sha1: ${RELEASE_SHA}
 EOF
 
 cat git-buildstack-deployment/new-release.yml
