@@ -16,10 +16,10 @@ outputs:
   - name: git-buildstack-deployment-modified
 
 params:
-  RELEASE: devtools
-  YAML_FILE: buildstack.yml
-  GIT_COMMIT_USERNAME: "CI Bot"
-  GIT_COMMIT_EMAIL: "ci-bot@finkit.com"
+  RELEASE:
+  YAML_FILE:
+  GIT_COMMIT_USERNAME:
+  GIT_COMMIT_EMAIL:
   TYPE: "release"
 
 run:
