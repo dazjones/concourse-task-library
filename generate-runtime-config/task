@@ -1,0 +1,7 @@
+#!/bin/bash
+
+RUNTIME=git-buildstack-deployment-modified/runtime.yml
+
+spruce merge git-buildstack-deployment/${FILES} > ${RUNTIME}
+
+cat ${RUNTIME}

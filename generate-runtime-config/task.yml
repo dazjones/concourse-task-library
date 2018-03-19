@@ -1,0 +1,19 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: darrenjones/docker-spruce
+    tag: 0.3
+
+inputs:
+  - name: git-buildstack-deployment
+  - name: concourse-tasks
+outputs:
+  - name: git-buildstack-deployment-modified
+
+params:
+  files: add-*.yml
+run:
+  path: concourse-tasks/generate-runtime-config/task
