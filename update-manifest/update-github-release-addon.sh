@@ -7,14 +7,18 @@ RELEASE_URL=https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/
 
 cat <<EOF > git-buildstack-deployment/new-version.yml
 ---
-addons:
+releases:
 - name: ${RELEASE}
   url: ${RELEASE_URL}
   version: ${RELEASE_NUMBER}
   sha1: ${RELEASE_SHA}
 EOF
 mkdir -p git-buildstack-deployment/operations
-touch git-buildstack-deployment/operations/add-${RELEASE}.yml
+
+if [! -f git-buildstack-deployment/operations/add-${RELEASE}.yml ]
+then
+    echo "---" > git-buildstack-deployment/operations/add-${RELEASE}.yml
+fi
 
 cat git-buildstack-deployment/operations/add-${RELEASE}.yml
 
