@@ -15,7 +15,7 @@ releases:
 EOF
 mkdir -p git-buildstack-deployment/operations
 
-if [! -f git-buildstack-deployment/operations/add-${RELEASE}.yml ]
+if [ ! -f git-buildstack-deployment/operations/add-${RELEASE}.yml ]
 then
     echo "---" > git-buildstack-deployment/operations/add-${RELEASE}.yml
 fi
