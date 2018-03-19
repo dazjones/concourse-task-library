@@ -2,6 +2,6 @@
 
 RUNTIME=git-buildstack-deployment-modified/runtime.yml
 
-spruce merge git-buildstack-deployment/${FILES} > ${RUNTIME}
+spruce merge git-buildstack-deployment/operations/${FILES} > ${RUNTIME}
 
 cat ${RUNTIME}
