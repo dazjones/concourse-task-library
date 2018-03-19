@@ -21,7 +21,7 @@ cat ${YAML_FILE}
 spruce merge ${YAML_FILE} git-buildstack-deployment/new-version.yml > ${YAML_FILE_MODIFIED}
 
 pushd git-buildstack-deployment-modified
-  cat ${YAML_FILE}
+  cat operations/add-${RELEASE}.yml
   git config user.name "${GIT_COMMIT_USERNAME}"
   git config user.email "${GIT_COMMIT_EMAIL}"
   if [[ -n $(git status --porcelain) ]]; then
