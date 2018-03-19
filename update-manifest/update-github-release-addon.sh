@@ -4,8 +4,8 @@ RELEASE_FILE=`find gcs-bucket -name '*.tgz'`
 RELEASE_NUMBER=$(echo ${RELEASE_FILE} | sed -e 's:.*-\([0-9]\+\.[0-9]\+\.[0-9]\+\).*:\1:')
 RELEASE_SHA=$(shasum ${RELEASE_FILE} | awk '{ print $1 }')
 RELEASE_URL=https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/download/v${RELEASE_NUMBER}/${RELEASE}-${RELEASE_NUMBER}.tgz
-YAML_FILE="git-buildstack-deployment/operaions/add-${RELEASE}.yml"
-YAML_FILE_MODIFIED="git-buildstack-deployment-modified/operaions/add-${RELEASE}.yml"
+YAML_FILE="git-buildstack-deployment/operations/add-${RELEASE}.yml"
+YAML_FILE_MODIFIED="git-buildstack-deployment-modified/operations/add-${RELEASE}.yml"
 
 cat <<EOF > git-buildstack-deployment/new-version.yml
 ---
