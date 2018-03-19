@@ -13,12 +13,6 @@ releases:
   version: ${RELEASE_NUMBER}
   sha1: ${RELEASE_SHA}
 EOF
-mkdir -p git-buildstack-deployment/operations
-
-if [ ! -f git-buildstack-deployment/operations/add-${RELEASE}.yml ]
-then
-    echo "---" > git-buildstack-deployment/operations/add-${RELEASE}.yml
-fi
 
 cat git-buildstack-deployment/operations/add-${RELEASE}.yml
 
