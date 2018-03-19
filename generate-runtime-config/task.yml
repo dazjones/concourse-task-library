@@ -9,7 +9,7 @@ image_resource:
 
 inputs:
   - name: git-buildstack-deployment
-  - name: concourse-tasks
+  - name: concourse-task-library
 
 outputs:
   - name: git-buildstack-deployment-modified
@@ -18,4 +18,4 @@ params:
   FILES: add-*.yml
 
 run:
-  path: concourse-tasks/generate-runtime-config/task
+  path: concourse-task-library/generate-runtime-config/task

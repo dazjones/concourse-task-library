@@ -10,7 +10,7 @@ image_resource:
 inputs:
   - name: git-buildstack-deployment
   - name: gcs-bucket
-  - name: concourse-tasks
+  - name: concourse-task-library
 outputs:
   - name: git-buildstack-deployment-modified
 
@@ -30,7 +30,7 @@ run:
   - |
     git clone git-buildstack-deployment git-buildstack-deployment-modified
 
-    SCRIPT_PATH="concourse-tasks/update-manifest/update-${TYPE}.sh"
+    SCRIPT_PATH="concourse-task-library/update-manifest/update-${TYPE}.sh"
 
     if [ -f ${SCRIPT_PATH} ]; then
       source ${SCRIPT_PATH}

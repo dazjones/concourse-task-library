@@ -9,13 +9,13 @@ image_resource:
 
 inputs:
 - name: env-repo
-- name: concourse-tasks
+- name: concourse-task-library
 
 outputs:
 - name: updated-env-repo
 
 run:
-    path: concourse-tasks/terraform-init-and-apply/task
+    path: concourse-task-library/terraform-init-and-apply/task
 
 params:
     BBL_STATE_DIR: bbl-state
